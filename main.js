@@ -25,7 +25,6 @@ class Doctor extends Traveler {
 
     heal(traveler) {
         traveler.isHealthy = true
-        // traveler.food += 1
     }
 }
 
@@ -43,27 +42,16 @@ class Hunter extends Traveler {
         this.food -= 2
         if (this.food < 1) {
             this.isHealthy = false
-            // } else {
-            //     this.food -= 2
         }
     }
-    giveFood(traveler, numOfFoodUnits) {
 
+    giveFood(traveler, numOfFoodUnits) {
         if (numOfFoodUnits <= this.food) {
             traveler.food += numOfFoodUnits
             traveler.isHealthy = true
             this.food -= numOfFoodUnits
-
-            // if (this.food < 1) {
-            //     this.isHealthy = false
-            // }
-
         }
-
-
     }
-
-
 }
 
 
@@ -74,10 +62,8 @@ class Wagon {
     }
 
     getAvailableSeatCount() {
-
         let emptySeats = this.capacity - this.passengers.length
         return (emptySeats)
-
     }
 
 
@@ -90,7 +76,6 @@ class Wagon {
     shouldQuarantine() {
         let quarintine = this.passengers.some(traveler => traveler.isHealthy === false)
         return quarintine
-
     }
 
     totalFood() {
@@ -101,7 +86,6 @@ class Wagon {
                 totals = totals + foodcount
             }
         }
-
         return totals
     }
 }
